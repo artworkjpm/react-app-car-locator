@@ -1,4 +1,4 @@
-a {
+p.more {
   cursor: pointer;
   color: #007bff;
   text-decoration: none;
@@ -106,16 +106,17 @@ span.red {
   border-top: 1px solid lightgray;
   width: 50%;
   opacity: 0.5;
+  zoom: 0.8;
   .column-left p {
   }
   .column-right p {
     margin-top: 10px;
-    margin-bottom: 13px;
+    margin-bottom: 12px;
   }
-  @media (max-width: 500px) {
+/* @media (max-width: 500px) {
     .column-left p {
       margin-bottom: 26px;
       margin-top: 10px;
     }
-  }
+  } */
 }

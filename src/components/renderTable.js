@@ -65,9 +65,9 @@ export class RenderTable extends Component {
                 {content.address}
               </p>
 
-              <a
+              <p
                 onClick={this.toggleContent}
-                className={`{showContent === true ? downArrow : ""}`}
+                className={`more {showContent === true ? downArrow : ""}`}
               >
                 More info{" "}
                 {showContent === true ? (
@@ -75,7 +75,7 @@ export class RenderTable extends Component {
                 ) : (
                   <FontAwesomeIcon icon="chevron-right" />
                 )}
-              </a>
+              </p>
               {showContent === true ? (
                 <div>
                   <p className="info">

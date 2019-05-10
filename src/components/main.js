@@ -49,7 +49,7 @@ export class Main extends Component {
               </p>
             </div>
             <div className="column-right">
-              <p>Number of cars available</p>
+              <p>Car number</p>
               <p>
                 <b>Interior</b> of car (rated good)
               </p>

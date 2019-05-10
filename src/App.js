@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import MapContainer from "./components/map";
 import Main from "./components/main";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -24,6 +25,9 @@ function App() {
   return (
     <div className="App">
       <Main />
+      <div width="200">
+        <MapContainer />
+      </div>
     </div>
   );
 }
