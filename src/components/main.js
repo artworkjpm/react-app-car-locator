@@ -8,19 +8,21 @@ export class Main extends Component {
   render() {
     return (
       <div>
-        <h1 className="center">
-          <FontAwesomeIcon icon="car" />
-          car2go
-        </h1>
-        <div className="header">
-          <div className="row">
-            <div className="column-left">
-              <p className="available">
-                <span className="pattern">{Car2go.placemarks.length}</span>
-              </p>
-            </div>
-            <div className="column-right">
-              <p className="available">Cars available in your area</p>
+        <div className="header-main">
+          <h1 className="center">
+            <FontAwesomeIcon icon="car" />
+            car2go
+          </h1>
+          <div className="header">
+            <div className="row">
+              <div className="column-left">
+                <p className="available">
+                  <span className="pattern">{Car2go.placemarks.length}</span>
+                </p>
+              </div>
+              <div className="column-right">
+                <p className="available">Cars available in your area</p>
+              </div>
             </div>
           </div>
         </div>

@@ -1,3 +1,15 @@
+.header-main{
+  background-color: #00a0e1;
+    padding-top: 5px;
+    width: 50%;
+    color: white;
+    text-shadow: 1px 1px black;
+    .fa-car{
+      -webkit-filter: drop-shadow( 1px 1px rgba(0, 0, 0, 1));
+  filter: drop-shadow( 1px 1px rgba(0, 0, 0, 1));
+    }
+}
+
 p.more {
   cursor: pointer;
   color: #007bff;

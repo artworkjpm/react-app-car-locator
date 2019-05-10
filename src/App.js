@@ -25,9 +25,7 @@ function App() {
   return (
     <div className="App">
       <Main />
-      <div width="200">
-        <MapContainer />
-      </div>
+      <MapContainer />
     </div>
   );
 }
