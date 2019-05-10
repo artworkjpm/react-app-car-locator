@@ -12,33 +12,49 @@ export class Main extends Component {
           <FontAwesomeIcon icon="car" />
           car2go
         </h1>
-        <p className="available">
-          {" "}
-          <span className="pattern">{Car2go.placemarks.length}</span> Cars
-          available in your area
-        </p>
+        <div className="header">
+          <div className="row">
+            <div className="column-left">
+              <p className="available">
+                <span className="pattern">{Car2go.placemarks.length}</span>
+              </p>
+            </div>
+            <div className="column-right">
+              <p className="available">Cars available in your area</p>
+            </div>
+          </div>
+        </div>
         <div className="wrapper">
           {Car2go.placemarks.map((content, index) => {
             return <RenderTable content={content} ind={index} key={index} />;
           })}
         </div>
         <div className="explain">
-          <div class="row">
-            <div class="column-left">
+          <div className="row">
+            <div className="column-left">
               <p>
-                <span className="pattern">1</span>Number of cars
+                <span className="pattern">1</span>
               </p>
+
               <p>
                 <span className="pattern green">
                   <FontAwesomeIcon icon="thumbs-up" />
                 </span>
-                Interior of car
               </p>
+
               <p>
                 <span className="pattern red">
                   <FontAwesomeIcon icon="thumbs-down" />
                 </span>
-                Exterior of car
+              </p>
+            </div>
+            <div className="column-right">
+              <p>Number of cars available</p>
+              <p>
+                <b>Interior</b> of car (rated good)
+              </p>
+              <p>
+                <b>Exterior</b> of car (rated bad)
               </p>
             </div>
           </div>

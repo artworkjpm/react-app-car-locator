@@ -26,8 +26,8 @@ export class RenderTable extends Component {
     return (
       <div className="carswrapper">
         <div className="cars">
-          <div class="row">
-            <div class="column-left">
+          <div className="row">
+            <div className="column-left">
               <p>
                 <span className="pattern">{ind + 1}</span>
               </p>
@@ -54,7 +54,7 @@ export class RenderTable extends Component {
                 )}
               </p>
             </div>
-            <div class="column-right">
+            <div className="column-right">
               <p className="info">
                 <span className="bold">{content.name}</span>
               </p>

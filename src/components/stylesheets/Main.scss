@@ -1,14 +1,19 @@
-a{
+a {
   cursor: pointer;
   color: #007bff;
-    text-decoration: none;
-    background-color: transparent;
+  text-decoration: none;
+  background-color: transparent;
   font-weight: bold;
- 
 }
-p{
-  margin-bottom:6px;
+p {
+  margin-bottom: 6px;
   margin-top: 6px;
+}
+.header {
+  width: 50%;
+  span {
+    margin-right: 1em;
+  }
 }
 .wrapper {
   height: 300px;
@@ -17,7 +22,7 @@ p{
 }
 .center {
   width: 50%;
-  margin-left: 10%;
+  margin-left: 20px;
   svg {
     margin-right: 0.5em;
   }
@@ -27,39 +32,38 @@ p{
   display: flex;
   border-bottom: 1px solid lightgray;
   padding: 0px 0px 10px 0;
-  
 }
 
 .column-left {
   flex: 8%;
-  
 }
 
 span.pattern {
   background: black;
-border-radius: 0.8em;
--moz-border-radius: 0.8em;
--webkit-border-radius: 0.8em;
-color: #ffffff;
-display: inline-block;
-font-weight: bold;
-line-height: 1.6em;
-text-align: center;
-width: 3em;
-margin-left: 1em;
-margin-right: 1em;
-
-
-
+  border-radius: 0.8em;
+  -moz-border-radius: 0.8em;
+  -webkit-border-radius: 0.8em;
+  color: #ffffff;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1.6em;
+  text-align: center;
+  width: 3em;
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
-span.green{ background: green;}
-span.red{ background: red;}
+span.green {
+  background: green;
+}
+span.red {
+  background: red;
+}
 
 .column-right {
   flex: 92%;
-  p{
-    margin-bottom:6px;
+  p {
+    margin-bottom: 6px;
   }
 }
 
@@ -89,23 +93,29 @@ span.red{ background: red;}
 }
 
 .available {
-  width: 50%;
-  color: green;
   transform: translateY(-50%);
   margin-bottom: 0;
-  margin-left: 9%;
-  span{
-    margin-right: 0.2em;
-  }
 }
 
 .bold {
   font-weight: bold;
 }
-.explain{
+.explain {
   padding-top: 10px;
-    background-color: #eaeaea;
-    border-top: 1px solid lightgray;
-    width: 50%;
-    opacity: 0.5;
+  background-color: #eaeaea;
+  border-top: 1px solid lightgray;
+  width: 50%;
+  opacity: 0.5;
+  .column-left p {
+  }
+  .column-right p {
+    margin-top: 10px;
+    margin-bottom: 13px;
+  }
+  @media (max-width: 500px) {
+    .column-left p {
+      margin-bottom: 26px;
+      margin-top: 10px;
+    }
+  }
 }
