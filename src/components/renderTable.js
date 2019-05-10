@@ -1,0 +1,101 @@
+import React, { Component } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+export class RenderTable extends Component {
+  constructor(props) {
+    super(props);
+    this.toggleContent = this.toggleContent.bind(this);
+    this.state = {
+      showContent: false,
+      dropDown: false
+    };
+  }
+
+  toggleContent(event) {
+    event.preventDefault();
+    this.setState({
+      showContent: !this.state.showContent,
+      dropDown: !this.state.dropDown
+    });
+  }
+
+  render() {
+    const { content } = this.props;
+    const { ind } = this.props;
+    const { showContent } = this.state;
+    return (
+      <div className="carswrapper">
+        <div className="cars">
+          <div class="row">
+            <div class="column-left">
+              <p>
+                <span className="pattern">{ind + 1}</span>
+              </p>
+              <p>
+                {content.interior === "GOOD" ? (
+                  <span className="pattern green">
+                    <FontAwesomeIcon icon="thumbs-up" />
+                  </span>
+                ) : (
+                  <span className="pattern red">
+                    <FontAwesomeIcon icon="thumbs-down" />
+                  </span>
+                )}
+              </p>
+              <p>
+                {content.exterior === "GOOD" ? (
+                  <span className="pattern green">
+                    <FontAwesomeIcon icon="thumbs-up" />
+                  </span>
+                ) : (
+                  <span className="pattern red">
+                    <FontAwesomeIcon icon="thumbs-down" />
+                  </span>
+                )}
+              </p>
+            </div>
+            <div class="column-right">
+              <p className="info">
+                <span className="bold">{content.name}</span>
+              </p>
+              <p>
+                <span className="bold">
+                  <FontAwesomeIcon icon="map-marker" />
+                </span>{" "}
+                {content.address}
+              </p>
+
+              <a
+                onClick={this.toggleContent}
+                className={`{showContent === true ? downArrow : ""}`}
+              >
+                More info{" "}
+                {showContent === true ? (
+                  <FontAwesomeIcon icon="chevron-down" />
+                ) : (
+                  <FontAwesomeIcon icon="chevron-right" />
+                )}
+              </a>
+              {showContent === true ? (
+                <div>
+                  <p className="info">
+                    <span className="bold">ID: </span>
+                    {content.id}
+                  </p>
+                  <p className="info">
+                    <span className="bold">Fuel: </span>
+                    {content.fuel}
+                  </p>
+                </div>
+              ) : (
+                ""
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default RenderTable;
