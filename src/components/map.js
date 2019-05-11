@@ -5,23 +5,21 @@ import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 export class MapContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      selectedPlace: {
-        name: "London",
-        showingInfoWindow: false
-      }
-    };
-    // binding this to event-handler functions
     this.onMarkerClick = this.onMarkerClick.bind(this);
+    this.state = {
+      showingInfoWindow: false,
+      activeMarker: {},
+      selectedPlace: {},
+      name: null
+    };
   }
-
-  onMarkerClick = (props, marker, e) =>
+  onMarkerClick(props, marker, e) {
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
       showingInfoWindow: true
     });
-
+  }
   render() {
     const google = window.google;
     const style = {
@@ -39,32 +37,28 @@ export class MapContainer extends Component {
           lng: 10.07526
         }}
         zoom={12}
-        onClick={this.onMapClicked}
       >
         {Car2go.placemarks.map((content, index) => {
           return (
             <Marker
-              title="index"
-              name="test"
+              title={index}
+              name={index}
               position={{
                 lat: content.coordinates[1],
                 lng: content.coordinates[0]
               }}
               onClick={this.onMarkerClick}
-              name={content.name}
             />
           );
         })}
-
-        {/*  <Marker
-          title={"The marker`s title will appear as a tooltip."}
-          name={"SOMA"}
-          position={{ lat: 53.59301, lng: 10.07526 }}
-        />
-        <Marker
-          name={"Dolores park"}
-          position={{ lat: 53.54847, lng: 9.99622 }}
-        /> */}
+        <InfoWindow
+          marker={this.state.activeMarker}
+          visible={this.state.showingInfoWindow}
+        >
+          <div>
+            <h2>{this.state.selectedPlace.name}</h2>
+          </div>
+        </InfoWindow>
       </Map>
     );
   }
