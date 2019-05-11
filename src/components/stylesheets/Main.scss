@@ -1,5 +1,19 @@
+$car2goBlue: #00a0e1;
+
+.car2go::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 10px;
+}
+.car2go::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: $car2goBlue;
+  -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+  height: 40px;
+
+}
+
 .header-main {
-  background-color: #00a0e1;
+  background-color: $car2goBlue;
   padding: 10px 0 0 0;
   color: white;
   text-shadow: 1px 1px black;
@@ -12,7 +26,7 @@
 
 p.more {
   cursor: pointer;
-  color: #007bff;
+  color: $car2goBlue;
   text-decoration: none;
   background-color: transparent;
   font-weight: bold;
@@ -29,7 +43,6 @@ p {
 
 .wrapper-main {
   border-right: 1px solid lightgray;
-  width: 50%;
 }
 .wrapper {
   height: 300px;
@@ -38,7 +51,12 @@ p {
   .carswrapper {
     border-bottom: 1px solid lightgray;
     padding-top: 10px;
+    background-color: #d4f3ff;
   }
+
+  /* .carswrapper:nth-child(even) {
+    background-color: #ecf7ff
+} */
 }
 .center {
   margin: 0 0 0 20px;
@@ -119,7 +137,7 @@ span.red {
 }
 .explain {
   padding-top: 10px;
-  background-color: #eaeaea;
+  background-color: #c7c7c7;
   border-top: 1px solid lightgray;
   opacity: 0.5;
   zoom: 0.8;

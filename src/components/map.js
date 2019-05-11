@@ -24,64 +24,52 @@ export class MapContainer extends Component {
   render() {
     const google = window.google;
     const style = {
-      width: "70%",
-      height: "70%",
+      height: "50%",
       margin: "0 auto"
     };
-    var marker = new Marker({
-      map: Map,
-      position: new google.maps.LatLng(-27.46577, 153.02303),
-      icon: {
-        path: "../images/map-pin",
-        fillColor: "#00CCBB",
-        fillOpacity: 1,
-        strokeColor: "",
-        strokeWeight: 0
-      },
-      map_icon_label:
-        '<span class="map-icon map-icon-point-of-interest"></span>'
-    });
     //const google = window.google;
     return (
-      <Map
-        google={this.props.google}
-        style={style}
-        initialCenter={{
-          lat: 53.59301,
-          lng: 10.07526
-        }}
-        zoom={12}
-      >
-        {Car2go.placemarks.map((content, index) => {
-          return (
-            <Marker
-              className="marker-car2"
-              title={index}
-              name={content.name}
-              position={{
-                lat: content.coordinates[1],
-                lng: content.coordinates[0]
-              }}
-              onClick={this.onMarkerClick}
-              icon={{
-                url: require("../images/car2go-pin.svg"),
-                anchor: new google.maps.Point(5, 58)
-              }}
-            />
-          );
-        })}
-        <InfoWindow
-          marker={this.state.activeMarker}
-          visible={this.state.showingInfoWindow}
+      <div className="map-class">
+        <Map
+          google={this.props.google}
+          style={style}
+          initialCenter={{
+            lat: 53.59301,
+            lng: 10.07526
+          }}
+          zoom={12}
         >
-          <div>
-            <p className="pattern">{this.state.selectedPlace.title}</p>
-            <p>
-              <b>{this.state.selectedPlace.name}</b>
-            </p>
-          </div>
-        </InfoWindow>
-      </Map>
+          {Car2go.placemarks.map((content, index) => {
+            return (
+              <Marker
+                className="marker-car2"
+                title={index}
+                name={content.name}
+                position={{
+                  lat: content.coordinates[1],
+                  lng: content.coordinates[0]
+                }}
+                onClick={this.onMarkerClick}
+                icon={{
+                  url: require("../images/car2go-pin.svg"),
+                  anchor: new google.maps.Point(5, 58)
+                }}
+              />
+            );
+          })}
+          <InfoWindow
+            marker={this.state.activeMarker}
+            visible={this.state.showingInfoWindow}
+          >
+            <div>
+              <p className="pattern">{this.state.selectedPlace.title}</p>
+              <p>
+                <b>{this.state.selectedPlace.name}</b>
+              </p>
+            </div>
+          </InfoWindow>
+        </Map>
+      </div>
     );
   }
 }

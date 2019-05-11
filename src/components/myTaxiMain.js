@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import Car2go from "../data/car2go/vehicles.json";
-import RenderTable from "./renderTable.js";
+import MyTaxiData from "../data/mytaxi/vehicles.json";
+import MyTaxiTable from "./myTaxiTable.js";
 import "./stylesheets/Main.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export class Main extends Component {
+export class MyTaxiMain extends Component {
   render() {
     return (
       <div className="component-wrapper">
@@ -12,24 +12,24 @@ export class Main extends Component {
           <div className="header-main">
             <h1 className="center">
               <FontAwesomeIcon icon="car" />
-              car2go
+              MyTaxi
             </h1>
             <div className="header">
               <div className="row">
                 <div className="column-left">
                   <p className="available">
-                    <span className="pattern">{Car2go.placemarks.length}</span>
+                    <span className="pattern">{MyTaxiData.poiList.length}</span>
                   </p>
                 </div>
                 <div className="column-right">
-                  <p className="available">Cars available in your area</p>
+                  <p className="available">Taxis available in your area</p>
                 </div>
               </div>
             </div>
           </div>
-          <div className="car2go wrapper">
-            {Car2go.placemarks.map((content, index) => {
-              return <RenderTable content={content} ind={index} key={index} />;
+          <div className="wrapper">
+            {MyTaxiData.poiList.map((content, index) => {
+              return <MyTaxiTable content={content} ind={index} key={index} />;
             })}
           </div>
           <div className="explain">
@@ -68,4 +68,4 @@ export class Main extends Component {
   }
 }
 
-export default Main;
+export default MyTaxiMain;

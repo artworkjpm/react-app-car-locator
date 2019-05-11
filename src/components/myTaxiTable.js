@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import MapPin from "../images/car2go-pin.svg";
 
-export class RenderTable extends Component {
+export class MyTaxiTable extends Component {
   constructor(props) {
     super(props);
     this.toggleContent = this.toggleContent.bind(this);
@@ -32,32 +32,10 @@ export class RenderTable extends Component {
               <p>
                 <span className="pattern">{ind + 1}</span>
               </p>
-              <p>
-                {content.interior === "GOOD" ? (
-                  <span className="pattern green">
-                    <FontAwesomeIcon icon="thumbs-up" />
-                  </span>
-                ) : (
-                  <span className="pattern red">
-                    <FontAwesomeIcon icon="thumbs-down" />
-                  </span>
-                )}
-              </p>
-              <p>
-                {content.exterior === "GOOD" ? (
-                  <span className="pattern green">
-                    <FontAwesomeIcon icon="thumbs-up" />
-                  </span>
-                ) : (
-                  <span className="pattern red">
-                    <FontAwesomeIcon icon="thumbs-down" />
-                  </span>
-                )}
-              </p>
             </div>
             <div className="column-right">
               <p className="info">
-                <span className="bold">{content.name}</span>
+                <span className="bold">{content.id}</span>
               </p>
 
               <div className="map-pin-wrapper">
@@ -69,7 +47,7 @@ export class RenderTable extends Component {
                     alt="map pin"
                   />
                 </div>
-                <p className="map-pin-p">{content.address}</p>
+                <p className="map-pin-p">MyTaxi</p>
               </div>
 
               <p
@@ -87,11 +65,11 @@ export class RenderTable extends Component {
                 <div>
                   <p className="info">
                     <span className="bold">ID: </span>
-                    {content.id}
+                    xxx
                   </p>
                   <p className="info">
                     <span className="bold">Fuel: </span>
-                    {content.fuel}
+                    xx
                   </p>
                 </div>
               ) : (
@@ -105,4 +83,4 @@ export class RenderTable extends Component {
   }
 }
 
-export default RenderTable;
+export default MyTaxiTable;

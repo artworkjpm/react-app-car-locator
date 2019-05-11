@@ -1,7 +1,8 @@
 import React from "react";
-import "./App.css";
+import "./App.scss";
 import MapContainer from "./components/map";
 import Main from "./components/main";
+import MyTaxiMain from "./components/myTaxiMain";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faCar,
@@ -25,6 +26,7 @@ function App() {
   return (
     <div className="App">
       <Main />
+      <MyTaxiMain />
       <MapContainer />
     </div>
   );
