@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import MapPin from "../images/car2go-pin.svg";
 
 export class RenderTable extends Component {
   constructor(props) {
@@ -58,12 +59,13 @@ export class RenderTable extends Component {
               <p className="info">
                 <span className="bold">{content.name}</span>
               </p>
-              <p>
-                <span className="bold">
-                  <FontAwesomeIcon icon="map-marker" />
-                </span>{" "}
-                {content.address}
-              </p>
+
+              <div className="map-pin-wrapper">
+                <div className="map-pin-img">
+                  <img src={MapPin} width="20" className="map-pin" />
+                </div>
+                <p className="map-pin-p">{content.address}</p>
+              </div>
 
               <p
                 onClick={this.toggleContent}
