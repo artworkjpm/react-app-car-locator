@@ -78,6 +78,7 @@ export class MapContainer extends Component {
                   anchor: new google.maps.Point(5, 58)
                 }}
                 key={index}
+                activetaxi={TaxiData.state}
               />
             );
           })}
@@ -103,6 +104,17 @@ export class MapContainer extends Component {
                 ) : (
                   ""
                 )}
+
+                {this.state.selectedPlace.activetaxi === "ACTIVE" ? (
+                  <span className="pattern green">
+                    <FontAwesomeIcon icon="check" />
+                  </span>
+                ) : (
+                  <span className="pattern red">
+                    <FontAwesomeIcon icon="times" />
+                  </span>
+                )}
+
                 {this.state.selectedPlace.type === "my-taxi" ? (
                   <span className="pattern black-bg">
                     {this.state.selectedPlace.title}{" "}
