@@ -1,1 +1,19 @@
 $car2goBlue: #00a0e1;
+$car2goDarkBlue: #006a95;
+$mytaxiBlack: #4a4a4a;
+$green: #00b400;
+
+@mixin pattern-style{
+    background: $car2goDarkBlue;
+    border-radius: 0.8em;
+    -moz-border-radius: 0.8em;
+    -webkit-border-radius: 0.8em;
+    color: #ffffff;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 1.6em;
+    text-align: center;
+    width: 3em;
+    margin-right: 1em;
+  
+  }

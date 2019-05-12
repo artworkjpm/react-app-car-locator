@@ -25,7 +25,7 @@ export class MapContainer extends Component {
   render() {
     const google = window.google;
     const style = {
-      width: "80%",
+      width: "100%",
       height: "50%",
       margin: "0 auto"
     };
@@ -36,19 +36,19 @@ export class MapContainer extends Component {
           google={this.props.google}
           style={style}
           initialCenter={{
-            lat: 53.59301,
-            lng: 10.07526
+            lat: 53.5511,
+            lng: 9.9937
           }}
-          zoom={12}
+          zoom={13}
         >
           {Car2go.placemarks.map((content, index) => {
             return (
               <Marker
-                className="marker-car2"
-                title={index + 1}
+                title={(index + 1).toString()}
                 name={content.name}
                 interior={content.interior}
                 exterior={content.exterior}
+                type="car2go"
                 position={{
                   lat: content.coordinates[1],
                   lng: content.coordinates[0]
@@ -58,24 +58,26 @@ export class MapContainer extends Component {
                   url: require("../images/car2go-pin.svg"),
                   anchor: new google.maps.Point(5, 58)
                 }}
+                key={index}
               />
             );
           })}
           {MyTaxiData.poiList.map((TaxiData, index) => {
             return (
               <Marker
-                className="marker-car2"
-                title={index + 1}
+                title={(index + 1).toString()}
                 name={TaxiData.id}
+                type="my-taxi"
                 position={{
                   lat: TaxiData.coordinate.latitude,
                   lng: TaxiData.coordinate.longitude
                 }}
                 onClick={this.onMarkerClick}
                 icon={{
-                  url: require("../images/map-pin.svg"),
+                  url: require("../images/my-taxi-pin.svg"),
                   anchor: new google.maps.Point(5, 58)
                 }}
+                key={index}
               />
             );
           })}
@@ -101,10 +103,15 @@ export class MapContainer extends Component {
                 ) : (
                   ""
                 )}
-
-                <span className="pattern">
-                  {this.state.selectedPlace.title}
-                </span>
+                {this.state.selectedPlace.type === "my-taxi" ? (
+                  <span className="pattern black-bg">
+                    {this.state.selectedPlace.title}{" "}
+                  </span>
+                ) : (
+                  <span className="pattern">
+                    {this.state.selectedPlace.title}
+                  </span>
+                )}
               </p>
               <p>
                 {this.state.selectedPlace.exterior === "GOOD" ? (

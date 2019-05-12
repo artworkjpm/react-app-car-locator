@@ -1,0 +1,22 @@
+@import "./colors.scss";
+
+.my-taxi{
+    background-color: $mytaxiBlack;
+}
+
+.wrapper .my-taxi-wrapper{
+    background-color: #d9d9d9;
+    border-bottom: 1px solid $mytaxiBlack;
+}
+
+p.black{
+    color: black;
+}
+
+.black-bg{
+    background-color: black;
+}
+
+.wrapper-main-my-taxi{
+    border-right: 1px solid black;
+}

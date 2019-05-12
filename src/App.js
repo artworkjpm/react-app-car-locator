@@ -10,7 +10,9 @@ import {
   faChevronRight,
   faThumbsDown,
   faThumbsUp,
-  faMapMarker
+  faMapMarker,
+  faCheck,
+  faTimes
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
@@ -19,7 +21,9 @@ library.add(
   faChevronRight,
   faThumbsDown,
   faThumbsUp,
-  faMapMarker
+  faMapMarker,
+  faCheck,
+  faTimes
 );
 
 function App() {

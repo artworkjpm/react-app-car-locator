@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import MapPin from "../images/car2go-pin.svg";
+import MapPin from "../images/my-taxi-pin.svg";
 
 export class MyTaxiTable extends Component {
   constructor(props) {
@@ -25,12 +25,23 @@ export class MyTaxiTable extends Component {
     const { ind } = this.props;
     const { showContent } = this.state;
     return (
-      <div className="carswrapper">
+      <div className="carswrapper my-taxi-wrapper">
         <div className="cars">
           <div className="row">
             <div className="column-left">
               <p>
-                <span className="pattern">{ind + 1}</span>
+                <span className="pattern black-bg">{ind + 1}</span>
+              </p>
+              <p>
+                {content.state === "ACTIVE" ? (
+                  <span className="pattern green">
+                    <FontAwesomeIcon icon="check" />
+                  </span>
+                ) : (
+                  <span className="pattern red">
+                    <FontAwesomeIcon icon="times" />
+                  </span>
+                )}
               </p>
             </div>
             <div className="column-right">
@@ -47,12 +58,12 @@ export class MyTaxiTable extends Component {
                     alt="map pin"
                   />
                 </div>
-                <p className="map-pin-p">MyTaxi</p>
+                <p className="map-pin-p">mytaxi location</p>
               </div>
 
               <p
                 onClick={this.toggleContent}
-                className={`more {showContent === true ? downArrow : ""}`}
+                className={`more black {showContent === true ? downArrow : ""}`}
               >
                 More info{" "}
                 {showContent === true ? (
@@ -64,12 +75,12 @@ export class MyTaxiTable extends Component {
               {showContent === true ? (
                 <div>
                   <p className="info">
-                    <span className="bold">ID: </span>
-                    xxx
+                    <span className="bold">Type: </span>
+                    {content.type}
                   </p>
                   <p className="info">
-                    <span className="bold">Fuel: </span>
-                    xx
+                    <span className="bold">State: </span>
+                    {content.state}
                   </p>
                 </div>
               ) : (

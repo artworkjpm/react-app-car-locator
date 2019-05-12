@@ -1,31 +1,21 @@
 @import "./colors.scss";
 
-.car2go::-webkit-scrollbar {
-  -webkit-appearance: none;
-  width: 10px;
-}
-.car2go::-webkit-scrollbar-thumb {
-  border-radius: 4px;
-  background-color: $car2goBlue;
-  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
-  height: 40px;
-}
-
 .header-main {
   background-color: $car2goBlue;
-  padding: 10px 0 0 0;
+  padding: 10px;
   color: white;
-  text-shadow: 1px 1px black;
+  
   border-bottom: 1px solid lightgray;
-  .fa-car {
-    -webkit-filter: drop-shadow(1px 1px rgba(0, 0, 0, 1));
-    filter: drop-shadow(1px 1px rgba(0, 0, 0, 1));
-  }
+  height: 60px;
+}
+
+.right-title{
+  text-shadow: 1px 1px 4px black;
 }
 
 p.more {
   cursor: pointer;
-  color: $car2goBlue;
+  color: $car2goDarkBlue;
   text-decoration: none;
   background-color: transparent;
   font-weight: bold;
@@ -40,8 +30,12 @@ p {
   }
 }
 
+.right-title{
+
+}
+
 .wrapper-main {
-  border-right: 1px solid lightgray;
+  border-right: 1px solid $car2goBlue;
 }
 .wrapper {
   height: 300px;
@@ -49,8 +43,9 @@ p {
   overflow-x: hidden;
 
   .carswrapper {
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid $car2goBlue;
     padding-top: 10px;
+    padding-left: 10px;
     background-color: #d4f3ff;
   }
 
@@ -74,29 +69,19 @@ p {
   flex: 8%;
 }
 
-span.pattern {
-  background: black;
-  border-radius: 0.8em;
-  -moz-border-radius: 0.8em;
-  -webkit-border-radius: 0.8em;
-  color: #ffffff;
-  display: inline-block;
-  font-weight: bold;
-  line-height: 1.6em;
-  text-align: center;
-  width: 3em;
-  margin-left: 1em;
-  margin-right: 1em;
-}
-
 span.green {
-  background: green;
+  background: $green;
 }
 span.red {
   background: red;
 }
 .available {
   margin-bottom: 0;
+}
+.column-left{
+  img{
+    margin-right: 20px;
+  }
 }
 .column-right {
   flex: 92%;
@@ -106,7 +91,19 @@ span.red {
   .available {
     margin-top: 9px;
   }
+  span.pattern{
+    margin-right: 10px;
+    margin-top: 15px;
+  }
 }
+
+@media (max-width: 620px) {
+    .column-right{
+      span.pattern{
+        margin-top: 0px;
+      }
+    }
+  }
 
 .accordion {
   background-color: #eee;
@@ -138,15 +135,17 @@ span.red {
 }
 .explain {
   padding-top: 10px;
-  background-color: #c7c7c7;
+  padding-left: 10px;
+  background-color: $car2goBlue;
   border-top: 1px solid lightgray;
-  opacity: 0.5;
+
   zoom: 0.8;
   .column-left p {
   }
   .column-right p {
     margin-top: 10px;
     margin-bottom: 12px;
+    color: white;
   }
   /* @media (max-width: 500px) {
     .column-left p {

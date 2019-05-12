@@ -3,6 +3,7 @@ import Car2go from "../data/car2go/vehicles.json";
 import RenderTable from "./renderTable.js";
 import "./stylesheets/Main.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Carlogo from "../images/car-logo.svg";
 
 export class Main extends Component {
   render() {
@@ -10,19 +11,14 @@ export class Main extends Component {
       <div className="component-wrapper">
         <div className="wrapper-main">
           <div className="header-main">
-            <h1 className="center">
-              <FontAwesomeIcon icon="car" />
-              car2go
-            </h1>
             <div className="header">
               <div className="row">
                 <div className="column-left">
-                  <p className="available">
-                    <span className="pattern">{Car2go.placemarks.length}</span>
-                  </p>
+                  <img src={Carlogo} width="80" alt="car2go logo" />
                 </div>
                 <div className="column-right">
-                  <p className="available">Cars available in your area</p>
+                  <span className="pattern">{Car2go.placemarks.length}</span>
+                  <b>Cars available</b>
                 </div>
               </div>
             </div>
