@@ -6,7 +6,7 @@ export class RenderTable extends Component {
   constructor(props) {
     super(props);
     this.toggleContent = this.toggleContent.bind(this);
-    //this.onMarkerClick = this.onMarkerClick.bind(this);
+    this.onMarkerClick = this.onMarkerClick.bind(this);
     this.state = {
       showContent: false,
       dropDown: false,
@@ -15,8 +15,9 @@ export class RenderTable extends Component {
       selectedPlace: {}
     };
   }
-  onMarkerClick(e) {
-    console.log("john");
+  onMarkerClick(event) {
+    event.preventDefault();
+    //console.log(this.props);
   }
   toggleContent(event) {
     event.preventDefault();
@@ -31,7 +32,10 @@ export class RenderTable extends Component {
     const { ind } = this.props;
     const { showContent } = this.state;
     return (
-      <div className="carswrapper" onClick={this.onMarkerClick}>
+      <div
+        className="carswrapper"
+        onClick={this.onMarkerClick(content.interior)}
+      >
         <div className="cars">
           <div className="row">
             <div className="column-left">
