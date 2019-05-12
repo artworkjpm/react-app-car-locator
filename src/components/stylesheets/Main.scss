@@ -1,4 +1,4 @@
-$car2goBlue: #00a0e1;
+@import "./colors.scss";
 
 .car2go::-webkit-scrollbar {
   -webkit-appearance: none;
@@ -7,9 +7,8 @@ $car2goBlue: #00a0e1;
 .car2go::-webkit-scrollbar-thumb {
   border-radius: 4px;
   background-color: $car2goBlue;
-  -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+  -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
   height: 40px;
-
 }
 
 .header-main {
@@ -47,6 +46,7 @@ p {
 .wrapper {
   height: 300px;
   overflow: auto;
+  overflow-x: hidden;
 
   .carswrapper {
     border-bottom: 1px solid lightgray;
@@ -95,11 +95,16 @@ span.green {
 span.red {
   background: red;
 }
-
+.available {
+  margin-bottom: 0;
+}
 .column-right {
   flex: 92%;
   p {
     margin-bottom: 6px;
+  }
+  .available {
+    margin-top: 9px;
   }
 }
 
@@ -126,10 +131,6 @@ span.red {
   display: none;
   background-color: white;
   overflow: hidden;
-}
-
-.available {
-  margin-bottom: 0;
 }
 
 .bold {

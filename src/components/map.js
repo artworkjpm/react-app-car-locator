@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Car2go from "../data/car2go/vehicles.json";
+import MyTaxiData from "../data/mytaxi/vehicles.json";
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 import "./stylesheets/map.scss";
 
@@ -10,8 +12,7 @@ export class MapContainer extends Component {
     this.state = {
       showingInfoWindow: false,
       activeMarker: {},
-      selectedPlace: {},
-      name: null
+      selectedPlace: {}
     };
   }
   onMarkerClick(props, marker, e) {
@@ -24,6 +25,7 @@ export class MapContainer extends Component {
   render() {
     const google = window.google;
     const style = {
+      width: "80%",
       height: "50%",
       margin: "0 auto"
     };
@@ -43,8 +45,10 @@ export class MapContainer extends Component {
             return (
               <Marker
                 className="marker-car2"
-                title={index}
+                title={index + 1}
                 name={content.name}
+                interior={content.interior}
+                exterior={content.exterior}
                 position={{
                   lat: content.coordinates[1],
                   lng: content.coordinates[0]
@@ -57,14 +61,70 @@ export class MapContainer extends Component {
               />
             );
           })}
+          {MyTaxiData.poiList.map((TaxiData, index) => {
+            return (
+              <Marker
+                className="marker-car2"
+                title={index + 1}
+                name={TaxiData.id}
+                position={{
+                  lat: TaxiData.coordinate.latitude,
+                  lng: TaxiData.coordinate.longitude
+                }}
+                onClick={this.onMarkerClick}
+                icon={{
+                  url: require("../images/map-pin.svg"),
+                  anchor: new google.maps.Point(5, 58)
+                }}
+              />
+            );
+          })}
+
           <InfoWindow
             marker={this.state.activeMarker}
             visible={this.state.showingInfoWindow}
           >
             <div>
-              <p className="pattern">{this.state.selectedPlace.title}</p>
               <p>
-                <b>{this.state.selectedPlace.name}</b>
+                {this.state.selectedPlace.interior === "GOOD" ? (
+                  <span className="pattern green">
+                    <FontAwesomeIcon icon="thumbs-up" />
+                  </span>
+                ) : (
+                  ""
+                )}
+
+                {this.state.selectedPlace.interior === "UNACCEPTABLE" ? (
+                  <span className="pattern red">
+                    <FontAwesomeIcon icon="thumbs-down" />
+                  </span>
+                ) : (
+                  ""
+                )}
+
+                <span className="pattern">
+                  {this.state.selectedPlace.title}
+                </span>
+              </p>
+              <p>
+                {this.state.selectedPlace.exterior === "GOOD" ? (
+                  <span className="pattern green">
+                    <FontAwesomeIcon icon="thumbs-up" />
+                  </span>
+                ) : (
+                  ""
+                )}
+
+                {this.state.selectedPlace.exterior === "UNACCEPTABLE" ? (
+                  <span className="pattern red">
+                    <FontAwesomeIcon icon="thumbs-down" />
+                  </span>
+                ) : (
+                  ""
+                )}
+                <span>
+                  <b>{this.state.selectedPlace.name}</b>
+                </span>
               </p>
             </div>
           </InfoWindow>
