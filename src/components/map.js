@@ -110,9 +110,14 @@ export class MapContainer extends Component {
                     <FontAwesomeIcon icon="check" />
                   </span>
                 ) : (
+                  ""
+                )}
+                {this.state.selectedPlace.activetaxi === "INACTIVE" ? (
                   <span className="pattern red">
                     <FontAwesomeIcon icon="times" />
                   </span>
+                ) : (
+                  ""
                 )}
 
                 {this.state.selectedPlace.type === "my-taxi" ? (
