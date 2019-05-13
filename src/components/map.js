@@ -6,7 +6,7 @@ import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 import "./stylesheets/map.scss";
 
 export class MapContainer extends Component {
-  constructor(props) {
+  /* constructor(props) {
     super(props);
     this.onMarkerClick = this.onMarkerClick.bind(this);
     this.state = {
@@ -14,14 +14,14 @@ export class MapContainer extends Component {
       activeMarker: {},
       selectedPlace: {}
     };
-  }
-  onMarkerClick(props, marker, e) {
+  }*/
+  /*  onMarkerClick(props, marker, e) {
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
       showingInfoWindow: true
     });
-  }
+  } */
   render() {
     const google = window.google;
     const style = {
@@ -53,43 +53,44 @@ export class MapContainer extends Component {
                   lat: content.coordinates[1],
                   lng: content.coordinates[0]
                 }}
-                onClick={this.onMarkerClick}
+                onClick={this.props.onMarkerClick}
                 icon={{
                   url: require("../images/car2go-pin.svg"),
                   anchor: new google.maps.Point(5, 58)
                 }}
-                key={index}
+                key={content.id}
               />
             );
           })}
-          {MyTaxiData.poiList.map((TaxiData, index) => {
+          {MyTaxiData.poiList.map((content, index) => {
             return (
               <Marker
                 title={(index + 1).toString()}
-                name={TaxiData.id}
+                name={content.id}
                 type="my-taxi"
                 position={{
-                  lat: TaxiData.coordinate.latitude,
-                  lng: TaxiData.coordinate.longitude
+                  lat: content.coordinate.latitude,
+                  lng: content.coordinate.longitude
                 }}
-                onClick={this.onMarkerClick}
+                onClick={this.props.onMarkerClick}
                 icon={{
                   url: require("../images/my-taxi-pin.svg"),
                   anchor: new google.maps.Point(5, 58)
                 }}
-                key={index}
-                activetaxi={TaxiData.state}
+                key={content.id}
+                activetaxi={content.state}
               />
             );
           })}
 
           <InfoWindow
-            marker={this.state.activeMarker}
-            visible={this.state.showingInfoWindow}
+            marker={this.props.activeMarker}
+            visible={this.props.showingInfoWindow}
+            selectedPlace={this.props.selectedPlace}
           >
             <div>
               <p>
-                {this.state.selectedPlace.interior === "GOOD" ? (
+                {this.props.selectedPlace.interior === "GOOD" ? (
                   <span className="pattern green">
                     <FontAwesomeIcon icon="thumbs-up" />
                   </span>
@@ -97,7 +98,7 @@ export class MapContainer extends Component {
                   ""
                 )}
 
-                {this.state.selectedPlace.interior === "UNACCEPTABLE" ? (
+                {this.props.selectedPlace.interior === "UNACCEPTABLE" ? (
                   <span className="pattern red">
                     <FontAwesomeIcon icon="thumbs-down" />
                   </span>
@@ -105,14 +106,14 @@ export class MapContainer extends Component {
                   ""
                 )}
 
-                {this.state.selectedPlace.activetaxi === "ACTIVE" ? (
+                {this.props.selectedPlace.activetaxi === "ACTIVE" ? (
                   <span className="pattern green">
                     <FontAwesomeIcon icon="check" />
                   </span>
                 ) : (
                   ""
                 )}
-                {this.state.selectedPlace.activetaxi === "INACTIVE" ? (
+                {this.props.selectedPlace.activetaxi === "INACTIVE" ? (
                   <span className="pattern red">
                     <FontAwesomeIcon icon="times" />
                   </span>
@@ -120,18 +121,18 @@ export class MapContainer extends Component {
                   ""
                 )}
 
-                {this.state.selectedPlace.type === "my-taxi" ? (
+                {this.props.selectedPlace.type === "my-taxi" ? (
                   <span className="pattern black-bg">
-                    {this.state.selectedPlace.title}{" "}
+                    {this.props.selectedPlace.title}{" "}
                   </span>
                 ) : (
                   <span className="pattern">
-                    {this.state.selectedPlace.title}
+                    {this.props.selectedPlace.title}
                   </span>
                 )}
               </p>
               <p>
-                {this.state.selectedPlace.exterior === "GOOD" ? (
+                {this.props.selectedPlace.exterior === "GOOD" ? (
                   <span className="pattern green">
                     <FontAwesomeIcon icon="thumbs-up" />
                   </span>
@@ -139,7 +140,7 @@ export class MapContainer extends Component {
                   ""
                 )}
 
-                {this.state.selectedPlace.exterior === "UNACCEPTABLE" ? (
+                {this.props.selectedPlace.exterior === "UNACCEPTABLE" ? (
                   <span className="pattern red">
                     <FontAwesomeIcon icon="thumbs-down" />
                   </span>
@@ -147,7 +148,7 @@ export class MapContainer extends Component {
                   ""
                 )}
                 <span>
-                  <b>{this.state.selectedPlace.name}</b>
+                  <b>{this.props.selectedPlace.name}</b>
                 </span>
               </p>
             </div>

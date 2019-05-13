@@ -7,13 +7,14 @@ import Carlogo from "../images/car-logo.svg";
 
 export class Main extends Component {
   render() {
+    const { handleClick } = this.props;
     return (
       <div className="component-wrapper">
         <div className="wrapper-main">
           <div className="header-main">
             <div className="header">
               <div className="row">
-                <div className="column-left">
+                <div className="column-left" onClick={handleClick}>
                   <img src={Carlogo} width="80" alt="car2go logo" />
                 </div>
                 <div className="column-right">
@@ -25,7 +26,9 @@ export class Main extends Component {
           </div>
           <div className="car2go wrapper">
             {Car2go.placemarks.map((content, index) => {
-              return <RenderTable content={content} ind={index} key={index} />;
+              return (
+                <RenderTable content={content} ind={index} key={content.id} />
+              );
             })}
           </div>
           <div className="explain">

@@ -9,10 +9,7 @@ export class RenderTable extends Component {
     //this.onMarkerClick = this.onMarkerClick.bind(this);
     this.state = {
       showContent: false,
-      dropDown: false,
-      showingInfoWindow: false,
-      activeMarker: {},
-      selectedPlace: {}
+      dropDown: false
     };
   }
   /* onMarkerClick(event) {
@@ -31,8 +28,9 @@ export class RenderTable extends Component {
     const { content } = this.props;
     const { ind } = this.props;
     const { showContent } = this.state;
+    const { handleClick } = this.props;
     return (
-      <div className="carswrapper">
+      <div className="carswrapper" onClick={handleClick}>
         <div className="cars">
           <div className="row">
             <div className="column-left">

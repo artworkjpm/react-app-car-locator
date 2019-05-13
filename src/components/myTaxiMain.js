@@ -8,13 +8,14 @@ import MtLogo from "../images/my-taxi-logo.svg";
 
 export class MyTaxiMain extends Component {
   render() {
+    const { handleClick } = this.props;
     return (
       <div className="component-wrapper">
         <div className="wrapper-main wrapper-main-my-taxi">
           <div className="header-main my-taxi">
             <div className="header">
               <div className="row">
-                <div className="column-left">
+                <div className="column-left" onClick={handleClick}>
                   <img src={MtLogo} width="120" alt="mytaxi logo" />
                 </div>
                 <div className="column-right">
@@ -28,7 +29,9 @@ export class MyTaxiMain extends Component {
           </div>
           <div className="wrapper">
             {MyTaxiData.poiList.map((content, index) => {
-              return <MyTaxiTable content={content} ind={index} key={index} />;
+              return (
+                <MyTaxiTable content={content} ind={index} key={content.id} />
+              );
             })}
           </div>
           <div className="explain my-taxi">
