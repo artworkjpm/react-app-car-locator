@@ -6,6 +6,7 @@ export class RenderTable extends Component {
   constructor(props) {
     super(props);
     this.toggleContent = this.toggleContent.bind(this);
+    this.passId = this.passId.bind(this);
     //this.onMarkerClick = this.onMarkerClick.bind(this);
     this.state = {
       showContent: false,
@@ -24,13 +25,19 @@ export class RenderTable extends Component {
     });
   }
 
+  passId(keyx) {
+    //this.props.propsToGrandchild.propsToChild(keyx);
+  }
+
   render() {
+    const props = this.props;
+    const passId = this.props;
     const { content } = this.props;
     const { ind } = this.props;
     const { showContent } = this.state;
     const { handleClick } = this.props;
     return (
-      <div className="carswrapper" onClick={handleClick}>
+      <div className="carswrapper">
         <div className="cars">
           <div className="row">
             <div className="column-left">
