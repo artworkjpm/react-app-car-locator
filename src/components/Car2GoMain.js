@@ -5,7 +5,7 @@ import "./stylesheets/Main.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Carlogo from "../images/car-logo.svg";
 
-export class Main extends Component {
+export class Car2GoMain extends Component {
   render() {
     return (
       <div className="component-wrapper">
@@ -64,4 +64,4 @@ export class Main extends Component {
   }
 }
 
-export default Main;
+export default Car2GoMain;

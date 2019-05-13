@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.scss";
 import MapContainer from "./components/map";
-import Main from "./components/main";
+import Car2GoMain from "./components/Car2GoMain";
 import MyTaxiMain from "./components/myTaxiMain";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -29,7 +29,7 @@ library.add(
 function App() {
   return (
     <div className="App">
-      <Main />
+      <Car2GoMain />
       <MyTaxiMain />
       <MapContainer />
     </div>
