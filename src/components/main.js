@@ -6,15 +6,27 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Carlogo from "../images/car-logo.svg";
 
 export class Main extends Component {
+  constructor(props) {
+    super(props);
+
+    //this.isMainClicked = this.isMainClicked.bind(this);
+    //this.handleClick = this.handleClick.bind(this);
+    this.state = {
+      showingInfoWindow: false,
+      activeMarker: {},
+      selectedPlace: {},
+      isMainClicked: false
+    };
+  }
   render() {
-    const { handleClick } = this.props;
+    const props = this.props;
     return (
       <div className="component-wrapper">
         <div className="wrapper-main">
           <div className="header-main">
             <div className="header">
               <div className="row">
-                <div className="column-left" onClick={handleClick}>
+                <div className="column-left">
                   <img src={Carlogo} width="80" alt="car2go logo" />
                 </div>
                 <div className="column-right">
@@ -27,7 +39,12 @@ export class Main extends Component {
           <div className="car2go wrapper">
             {Car2go.placemarks.map((content, index) => {
               return (
-                <RenderTable content={content} ind={index} key={content.id} />
+                <RenderTable
+                  content={content}
+                  ind={index}
+                  key={content.id}
+                  bang={props.shoot}
+                />
               );
             })}
           </div>

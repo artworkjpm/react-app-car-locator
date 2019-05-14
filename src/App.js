@@ -31,7 +31,7 @@ class App extends React.Component {
     super(props);
     this.onMarkerClick = this.onMarkerClick.bind(this);
     //this.isMainClicked = this.isMainClicked.bind(this);
-    this.handleClick = this.handleClick.bind(this);
+    //this.handleClick = this.handleClick.bind(this);
     this.state = {
       showingInfoWindow: false,
       activeMarker: {},
@@ -49,13 +49,15 @@ class App extends React.Component {
 
   handleClick() {
     alert("from app.js");
-    this.setState({ isMainClicked: true });
+    this.setState({
+      isMainClicked: true
+    });
   }
 
   render() {
     return (
       <div className="App">
-        <Main handleClick={this.handleClick} />
+        <Main shoot={this.onMarkerClick.bind(this)} />
         <MyTaxiMain handleClick={this.handleClick} />
         <MapContainer
           isMainClicked={this.state.isMainClicked}
