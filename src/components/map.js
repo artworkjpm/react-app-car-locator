@@ -25,8 +25,6 @@ export class MapContainer extends Component {
   render() {
     const google = window.google;
     const style = {
-      width: "100%",
-      height: "50%",
       margin: "0 auto"
     };
     //const google = window.google;
