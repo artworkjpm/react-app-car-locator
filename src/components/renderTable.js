@@ -10,7 +10,10 @@ export class RenderTable extends Component {
     //this.onMarkerClick = this.onMarkerClick.bind(this);
     this.state = {
       showContent: false,
-      dropDown: false
+      dropDown: false,
+      activeMarker: {},
+      selectedPlace: {},
+      isMainClicked: false
     };
   }
   /* onMarkerClick(event) {
@@ -25,11 +28,22 @@ export class RenderTable extends Component {
     });
   }
 
+  triggerMarker(props, marker, e) {
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true
+    });
+    this.props.bang(this.state.selectedPlace);
+  }
+
   render() {
     const props = this.props;
     const { content } = this.props;
     const { ind } = this.props;
     const { showContent } = this.state;
+    const index = this.index;
+    const bang = this.bang;
 
     return (
       <div className="carswrapper">
@@ -68,7 +82,22 @@ export class RenderTable extends Component {
               </p>
 
               <div className="map-pin-wrapper">
-                <div className="map-pin-img" onClick={props.bang}>
+                <div
+                  className="map-pin-img"
+                  content={content}
+                  ind={index}
+                  key={content.id}
+                  onClick={this.triggerMarker.bind(this)}
+                  title={(index + 1).toString()}
+                  name={content.name}
+                  interior={content.interior}
+                  exterior={content.exterior}
+                  type="car2go"
+                  position={{
+                    lat: content.coordinates[1],
+                    lng: content.coordinates[0]
+                  }}
+                >
                   <img
                     src={MapPin}
                     width="20"

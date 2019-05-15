@@ -39,32 +39,41 @@ class App extends React.Component {
       isMainClicked: false
     };
   }
+
+  handleClick(props, marker, e) {
+    alert("from handleclick");
+    this.setState({
+      selectedPlace: props,
+      showingInfoWindow: true
+    });
+  }
   onMarkerClick(props, marker, e) {
+    //const text = "john is a nob";
     this.setState({
       selectedPlace: props,
       activeMarker: marker,
       showingInfoWindow: true
     });
+    alert(props.showingInfoWindow);
+    console.log(props.selectedPlace);
   }
-
-  handleClick() {
-    alert("from app.js");
-    this.setState({
-      isMainClicked: true
-    });
-  }
-
   render() {
+    const props = this.props;
     return (
       <div className="App">
-        <Main shoot={this.onMarkerClick.bind(this)} />
-        <MyTaxiMain handleClick={this.handleClick} />
+        <Main
+          shoot={this.onMarkerClick.bind(this)}
+          marker={this.props.activeMarker}
+          visible={this.props.showingInfoWindow}
+          selectedPlace={this.props.selectedPlace}
+        />
+        <MyTaxiMain shoot={this.handleClick.bind(this)} selectedPlace={props} />
         <MapContainer
           isMainClicked={this.state.isMainClicked}
           showingInfoWindow={this.state.showingInfoWindow}
           activeMarker={this.state.activeMarker}
           selectedPlace={this.state.selectedPlace}
-          onMarkerClick={this.onMarkerClick}
+          onMarkerClick={this.onMarkerClick.bind(this)}
         />
       </div>
     );

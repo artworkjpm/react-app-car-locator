@@ -21,6 +21,7 @@ export class MyTaxiTable extends Component {
   }
 
   render() {
+    const props = this.props;
     const { content } = this.props;
     const { ind } = this.props;
     const { showContent } = this.state;

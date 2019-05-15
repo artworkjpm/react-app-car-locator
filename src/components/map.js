@@ -62,7 +62,7 @@ export class MapContainer extends Component {
               />
             );
           })}
-          {MyTaxiData.poiList.map((content, index) => {
+          {/* {MyTaxiData.poiList.map((content, index) => {
             return (
               <Marker
                 title={(index + 1).toString()}
@@ -72,7 +72,7 @@ export class MapContainer extends Component {
                   lat: content.coordinate.latitude,
                   lng: content.coordinate.longitude
                 }}
-                onClick={this.props.onMarkerClick}
+                onClickCapture={this.props.onMarkerClick}
                 icon={{
                   url: require("../images/my-taxi-pin.svg"),
                   anchor: new google.maps.Point(5, 58)
@@ -81,7 +81,7 @@ export class MapContainer extends Component {
                 activetaxi={content.state}
               />
             );
-          })}
+          })} */}
 
           <InfoWindow
             marker={this.props.activeMarker}
@@ -90,7 +90,13 @@ export class MapContainer extends Component {
           >
             <div>
               <p>
-                {this.props.selectedPlace.interior === "GOOD" ? (
+                <span className="pattern">
+                  {this.props.selectedPlace.title}
+                </span>
+                <span>
+                  <b>{this.props.selectedPlace.name}</b>
+                </span>
+                {/* {this.props.selectedPlace.interior === "GOOD" ? (
                   <span className="pattern green">
                     <FontAwesomeIcon icon="thumbs-up" />
                   </span>
@@ -149,7 +155,7 @@ export class MapContainer extends Component {
                 )}
                 <span>
                   <b>{this.props.selectedPlace.name}</b>
-                </span>
+                </span> */}
               </p>
             </div>
           </InfoWindow>

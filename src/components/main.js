@@ -8,18 +8,33 @@ import Carlogo from "../images/car-logo.svg";
 export class Main extends Component {
   constructor(props) {
     super(props);
-
-    //this.isMainClicked = this.isMainClicked.bind(this);
-    //this.handleClick = this.handleClick.bind(this);
+    // this.onMarkerClick = this.onMarkerClick.bind(this);
     this.state = {
-      showingInfoWindow: false,
-      activeMarker: {},
-      selectedPlace: {},
-      isMainClicked: false
+      marker: props
     };
   }
+  /*  onMarkerClick(props, marker, e) {
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true
+    });
+  } */
+
+  /*  triggerMarker(props, marker, e) {
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true
+    });
+    this.props.bang(this.state.selectedPlace);
+  } */
+
+  bang() {
+    this.props.shoot(this.state.marker);
+  }
   render() {
-    const props = this.props;
+    //const props = this.props;
     return (
       <div className="component-wrapper">
         <div className="wrapper-main">
@@ -43,7 +58,16 @@ export class Main extends Component {
                   content={content}
                   ind={index}
                   key={content.id}
-                  bang={props.shoot}
+                  bang={this.bang.bind(this)}
+                  title={(index + 1).toString()}
+                  name={content.name}
+                  interior={content.interior}
+                  exterior={content.exterior}
+                  type="car2go"
+                  position={{
+                    lat: content.coordinates[1],
+                    lng: content.coordinates[0]
+                  }}
                 />
               );
             })}
