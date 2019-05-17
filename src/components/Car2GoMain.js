@@ -6,6 +6,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Carlogo from "../images/car-logo.svg";
 
 export class Car2GoMain extends Component {
+  fire(value) {
+    this.props.shoot(value);
+  }
   render() {
     return (
       <div className="component-wrapper">
@@ -25,7 +28,15 @@ export class Car2GoMain extends Component {
           </div>
           <div className="car2go wrapper">
             {Car2go.placemarks.map((content, index) => {
-              return <RenderTable content={content} ind={index} key={index} />;
+              return (
+                <RenderTable
+                  content={content}
+                  ind={index}
+                  key={content.id}
+                  fire={this.fire.bind(this)}
+                  nameList={content.id}
+                />
+              );
             })}
           </div>
           <div className="explain">
