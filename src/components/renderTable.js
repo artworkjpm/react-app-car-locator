@@ -27,11 +27,6 @@ export class RenderTable extends Component {
     });
   }
 
-  handleClick(event) {
-    event.preventDefault();
-    this.props.fire(this.props.nameList);
-  }
-
   render() {
     const { content } = this.props;
     const { ind } = this.props;
@@ -73,11 +68,7 @@ export class RenderTable extends Component {
               </p>
 
               <div className="map-pin-wrapper">
-                <div
-                  className="map-pin-img"
-                  onClick={this.props.handleClick.bind(this)}
-                  passId={content.name}
-                >
+                <div className="map-pin-img">
                   <img
                     src={MapPin}
                     width="20"

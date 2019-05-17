@@ -26,41 +26,14 @@ library.add(
   faTimes
 );
 
-class App extends React.Component {
-  /* constructor(props) {
-    super(props);
-  } */
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      nameList: null
-    };
-  }
-
-  shoot() {
-    /*  this.setState({
-      nameList: value
-    }); */
-    //alert(nameList);
-    alert("cunt");
-  }
-
-  /* shoot() {
-    alert("cunt");
-  } */
-  render() {
-    return (
-      <div className="App">
-        <Car2GoMain
-          nameList={this.state.nameList}
-          shoot={this.shoot.bind(this)}
-        />
-        <MyTaxiMain />
-        <MapContainer />
-      </div>
-    );
-  }
+function App() {
+  return (
+    <div className="App">
+      <Car2GoMain />
+      <MyTaxiMain />
+      <MapContainer />
+    </div>
+  );
 }
 
 export default App;
