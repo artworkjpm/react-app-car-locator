@@ -9,7 +9,6 @@ export class RenderTable extends Component {
     //this.onMarkerClick = this.onMarkerClick.bind(this);
     this.state = {
       showContent: false,
-      dropDown: false,
       showingInfoWindow: false,
       activeMarker: {},
       selectedPlace: {}
@@ -22,8 +21,7 @@ export class RenderTable extends Component {
   toggleContent(event) {
     event.preventDefault();
     this.setState({
-      showContent: !this.state.showContent,
-      dropDown: !this.state.dropDown
+      showContent: !this.state.showContent
     });
   }
 
