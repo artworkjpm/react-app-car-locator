@@ -33,8 +33,7 @@ class App extends Component {
     this.state = {
       showingInfoWindow: false,
       activeMarker: {},
-      selectedPlace: {},
-      showContent: false
+      selectedPlace: {}
     };
   }
   onMarkerClick(props, marker, e) {
@@ -44,19 +43,10 @@ class App extends Component {
       showingInfoWindow: true
     });
   }
-
-  toggleContent = () => {
-    this.setState({
-      showContent: !this.state.showContent
-    });
-  };
   render() {
     return (
       <div className="App">
-        <Car2GoMain
-          handleClick={this.onMarkerClick}
-          handleToggle={this.toggleContent}
-        />
+        <Car2GoMain />
         <MyTaxiMain />
         <MapContainer
           selectedPlace={this.state.selectedPlace}
