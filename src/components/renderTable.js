@@ -27,8 +27,6 @@ export class RenderTable extends Component {
     const { content } = this.props;
     const { ind } = this.props;
     const { showContent } = this.state;
-    const { index } = content.index;
-    const { props } = this.props;
     return (
       <div className="carswrapper">
         <div className="cars">
@@ -65,19 +63,7 @@ export class RenderTable extends Component {
                 <span className="bold">{content.name}</span>
               </p>
 
-              <div
-                className="map-pin-wrapper"
-                title={(index + 1).toString()}
-                name={content.name}
-                interior={content.interior}
-                exterior={content.exterior}
-                type="car2go"
-                position={{
-                  lat: content.coordinates[1],
-                  lng: content.coordinates[0]
-                }}
-                onClick={this.props.handleClick.bind(this)}
-              >
+              <div className="map-pin-wrapper">
                 <div className="map-pin-img">
                   <img
                     src={MapPin}
