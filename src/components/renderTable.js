@@ -9,9 +9,7 @@ export class RenderTable extends Component {
     //this.onMarkerClick = this.onMarkerClick.bind(this);
     this.state = {
       showContent: false,
-      showingInfoWindow: false,
-      activeMarker: {},
-      selectedPlace: {}
+      showingInfoWindow: false
     };
   }
   /* onMarkerClick(event) {
