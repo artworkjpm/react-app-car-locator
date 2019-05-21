@@ -46,7 +46,12 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Car2GoMain />
+        <Car2GoMain
+          selectedPlace={this.state.selectedPlace}
+          activeMarker={this.state.activeMarker}
+          handleClick={this.onMarkerClick}
+          showingInfoWindow={this.state.showingInfoWindow}
+        />
         <MyTaxiMain />
         <MapContainer
           selectedPlace={this.state.selectedPlace}

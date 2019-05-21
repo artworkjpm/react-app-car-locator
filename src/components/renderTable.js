@@ -7,6 +7,7 @@ export class RenderTable extends Component {
     super(props);
     this.toggleContent = this.toggleContent.bind(this);
     //this.onMarkerClick = this.onMarkerClick.bind(this);
+
     this.state = {
       showContent: false,
       showingInfoWindow: false
@@ -64,7 +65,19 @@ export class RenderTable extends Component {
               </p>
 
               <div className="map-pin-wrapper">
-                <div className="map-pin-img">
+                <div
+                  className="map-pin-img"
+                  title={(this.props.ind + 1).toString()}
+                  name={content.name}
+                  interior={content.interior}
+                  exterior={content.exterior}
+                  type="car2go"
+                  position={{
+                    lat: content.coordinates[1],
+                    lng: content.coordinates[0]
+                  }}
+                  onClick={() => this.props.onHandleClick(this.props.content)}
+                >
                   <img
                     src={MapPin}
                     width="20"

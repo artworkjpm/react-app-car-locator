@@ -24,7 +24,14 @@ const Car2GoMain = props => {
         </div>
         <div className="car2go wrapper">
           {Car2go.placemarks.map((content, index) => {
-            return <RenderTable content={content} ind={index} key={index} />;
+            return (
+              <RenderTable
+                content={content}
+                ind={index}
+                key={index}
+                onHandleClick={props.handleClick}
+              />
+            );
           })}
         </div>
         <div className="explain">
