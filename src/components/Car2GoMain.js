@@ -30,6 +30,7 @@ const Car2GoMain = props => {
                 ind={index}
                 key={index}
                 onHandleClick={props.handleClick}
+                marker={props.activeMarker}
               />
             );
           })}
