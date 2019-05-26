@@ -33,24 +33,35 @@ class App extends Component {
     this.state = {
       showingInfoWindow: false,
       activeMarker: {},
-      selectedPlace: {}
+      selectedPlace: {},
+      markerName: null
     };
   }
   onMarkerClick(props, marker, e) {
+    this.setState(
+      {
+        selectedPlace: props,
+        activeMarker: marker,
+        showingInfoWindow: true
+      },
+      this.callName
+    );
+  }
+
+  callName() {
     this.setState({
-      selectedPlace: props,
-      activeMarker: marker,
-      showingInfoWindow: true
+      markerName: this.state.selectedPlace.name
     });
   }
+
   render() {
     return (
       <div className="App">
         <Car2GoMain
           selectedPlace={this.state.selectedPlace}
-          activeMarker={this.state.activeMarker}
+          //activeMarker={this.state.activeMarker}
           handleClick={this.onMarkerClick}
-          showingInfoWindow={this.state.showingInfoWindow}
+          //showingInfoWindow={this.state.showingInfoWindow}
         />
         <MyTaxiMain />
         <MapContainer
@@ -58,6 +69,7 @@ class App extends Component {
           activeMarker={this.state.activeMarker}
           showingInfoWindow={this.state.showingInfoWindow}
           handleClick={this.onMarkerClick}
+          markerName={this.state.markerName}
         />
       </div>
     );

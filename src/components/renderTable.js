@@ -76,8 +76,10 @@ export class RenderTable extends Component {
                     lat: content.coordinates[1],
                     lng: content.coordinates[0]
                   }}
-                  onClick={() => this.props.onHandleClick(this.props.content)}
-                  marker={() => this.props.marker(this.props.content)}
+                  onClick={() =>
+                    this.props.onHandleClick(this.props.content.name)
+                  }
+                  //marker={() => this.props.marker(this.props.content)}
                 >
                   <img
                     src={MapPin}

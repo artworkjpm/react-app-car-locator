@@ -27,6 +27,13 @@ const MapContainer = props => {
   const style = {
     margin: "0 auto"
   };
+  const markerClick = getMarkerName => {
+    console.log(getMarkerName);
+    //if (props.markerName === getMarkerName.marker.name) {
+    //this.click();
+    //}
+  };
+
   //const google = window.google;
   return (
     <div className="map-class">
@@ -57,6 +64,8 @@ const MapContainer = props => {
                 anchor: new google.maps.Point(5, 58)
               }}
               key={index}
+              //ref={markerClick}
+              getMarkerName={props.markerName}
             />
           );
         })}
