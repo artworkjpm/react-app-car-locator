@@ -76,9 +76,7 @@ export class RenderTable extends Component {
                     lat: content.coordinates[1],
                     lng: content.coordinates[0]
                   }}
-                  onClick={() =>
-                    this.props.onHandleClick(this.props.content.name)
-                  }
+                  onClick={() => this.props.onHandleClick(this.props)}
                   //marker={() => this.props.marker(this.props.content)}
                 >
                   <img

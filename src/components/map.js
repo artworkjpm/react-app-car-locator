@@ -27,14 +27,20 @@ const MapContainer = props => {
   const style = {
     margin: "0 auto"
   };
-  const markerClick = getMarkerName => {
+  /* const click = e => {
+    console.log(e.target.currentTarget);
+  }; */
+  /* const markerClick = getMarkerName => {
     console.log(getMarkerName);
-    //if (props.markerName === getMarkerName.marker.name) {
-    //this.click();
-    //}
-  };
+    if (props.markerName === getMarkerName.marker.name) {
+
+    }
+  }; */
 
   //const google = window.google;
+
+  let markerRef = React.createRef();
+  console.log("markerRef" + markerRef);
   return (
     <div className="map-class">
       <Map
@@ -65,7 +71,8 @@ const MapContainer = props => {
               }}
               key={index}
               //ref={markerClick}
-              getMarkerName={props.markerName}
+              //forceClick={props.markerName}
+              ref={markerRef}
             />
           );
         })}

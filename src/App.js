@@ -36,6 +36,8 @@ class App extends Component {
       selectedPlace: {},
       markerName: null
     };
+    // this.markerRef = React.createRef();
+    //console.log("markerRefVar" + this.markerRef);
   }
   onMarkerClick(props, marker, e) {
     this.setState(
@@ -48,20 +50,20 @@ class App extends Component {
     );
   }
 
-  callName() {
+  /* callName() {
     this.setState({
-      markerName: this.state.selectedPlace.name
+      activeMarker: this.props
     });
-  }
+  } */
 
   render() {
     return (
       <div className="App">
         <Car2GoMain
           selectedPlace={this.state.selectedPlace}
-          //activeMarker={this.state.activeMarker}
+          activeMarker={this.state.activeMarker}
           handleClick={this.onMarkerClick}
-          //showingInfoWindow={this.state.showingInfoWindow}
+          showingInfoWindow={this.state.showingInfoWindow}
         />
         <MyTaxiMain />
         <MapContainer
@@ -70,6 +72,7 @@ class App extends Component {
           showingInfoWindow={this.state.showingInfoWindow}
           handleClick={this.onMarkerClick}
           markerName={this.state.markerName}
+          markerRef={this.markerRefFunc}
         />
       </div>
     );
